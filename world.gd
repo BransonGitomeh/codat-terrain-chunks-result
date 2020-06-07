@@ -111,6 +111,6 @@ func reset_chunks():
 			Vector3(chunks[key].x * chunk_size, 0, chunks[key].z * chunk_size)
 		)
 
-		if(distance > 200):
-			chunks[key].should_remove = true
+		# if(distance > 200):
+		chunks[key].should_remove = true
 	pass

@@ -1,0 +1,93 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://blocky_terrain/noise_distorted.png" type="Image" id=1]
+[ext_resource path="res://exit.tscn" type="PackedScene" id=2]
+[ext_resource path="res://addons/maujoe.camera_control/scripts/camera_control.gd" type="Script" id=4]
+[ext_resource path="res://fps_demo/materials/grass-rock2.material" type="Material" id=5]
+[ext_resource path="res://editor/creator.tscn" type="PackedScene" id=6]
+[ext_resource path="res://fps_demo/scripts/WorldCommon.gd" type="Script" id=7]
+[ext_resource path="res://fps_demo/materials/water.material" type="Material" id=8]
+
+[sub_resource type="VoxelGeneratorImage" id=1]
+height_start = 0.0
+height_range = 70.0
+image = ExtResource( 1 )
+blur_enabled = true
+
+[sub_resource type="PlaneMesh" id=2]
+material = ExtResource( 8 )
+size = Vector2( 1000, 1000 )
+
+[node name="World" type="Spatial"]
+script = ExtResource( 7 )
+
+[node name="VoxelTerrain" type="VoxelLodTerrain" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 87.5932 )
+stream = SubResource( 1 )
+view_distance = 300
+lod_count = 6
+viewer_path = NodePath("../Player")
+material = ExtResource( 5 )
+
+[node name="Water" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 12, 0 )
+visible = false
+mesh = SubResource( 2 )
+material/0 = null
+
+[node name="controls" parent="." instance=ExtResource( 6 )]
+
+[node name="stats" type="Panel" parent="controls"]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -167.0
+margin_bottom = 51.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="network_status" type="ColorRect" parent="controls/stats"]
+margin_right = 40.0
+margin_bottom = 51.0
+color = Color( 0, 1, 0.25098, 1 )
+
+[node name="login_user" type="RichTextLabel" parent="controls/stats"]
+margin_left = 43.0
+margin_top = 4.0
+margin_right = 159.0
+margin_bottom = 19.0
+text = "Branson Gitomeh"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="server" type="RichTextLabel" parent="controls/stats"]
+margin_left = 44.0
+margin_top = 17.0
+margin_right = 160.0
+margin_bottom = 36.0
+text = "Staging server"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="time_spent" type="RichTextLabel" parent="controls/stats"]
+margin_left = 44.7559
+margin_top = 37.3605
+margin_right = 160.756
+margin_bottom = 52.3605
+text = "for 2 hrs"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Player" type="Camera" parent="."]
+far = 2000.0
+script = ExtResource( 4 )
+
+[node name="RayCast" type="RayCast" parent="Player"]
+cast_to = Vector3( 0, 100, 0 )
+
+[node name="exit" parent="." instance=ExtResource( 2 )]
+
+[editable path="controls"]
