@@ -1,0 +1,14 @@
+{
+  "name": "codat_terrain",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@github.com:BransonGitomeh/codat-terrain-chunks-result.git",
+  "author": "Your Name <you@example.com>",
+  "license": "MIT",
+  "scripts": {
+    "serve":"npx live-server -- --port=8082 -- --host=localhost"
+  },
+  "devDependencies": {
+    "live-server": "^1.2.1"
+  }
+}

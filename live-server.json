@@ -1,0 +1,9 @@
+{
+    "port": 8181, 
+    "host": "0.0.0.0", 
+    "root": "/build/html5", 
+    "open": false, 
+    "file": "index.html", 
+    "wait": 1000,
+    "logLevel": 2
+}

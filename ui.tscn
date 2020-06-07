@@ -1,0 +1,135 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://ui.gd" type="Script" id=1]
+
+[node name="Control" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="stats" type="Panel" parent="."]
+margin_right = 177.0
+margin_bottom = 49.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="network_status" type="ColorRect" parent="stats"]
+margin_right = 40.0
+margin_bottom = 40.0
+color = Color( 0.407843, 1, 0, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="user" type="RichTextLabel" parent="stats"]
+margin_left = 43.4609
+margin_top = 3.18523
+margin_right = 163.461
+margin_bottom = 18.1852
+text = "Branson Gitomeh"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="server" type="RichTextLabel" parent="stats"]
+margin_left = 43.373
+margin_top = 17.3156
+margin_right = 159.373
+margin_bottom = 32.3156
+text = "Staging server - "
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="time" type="RichTextLabel" parent="stats"]
+margin_left = 143.0
+margin_top = 17.0
+margin_right = 176.0
+margin_bottom = 32.0
+text = "2hrs"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="fps_label" type="RichTextLabel" parent="stats"]
+margin_left = 43.0
+margin_top = 31.0
+margin_right = 94.0
+margin_bottom = 47.0
+text = "Fps: 60"
+
+[node name="resources" type="Panel" parent="."]
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = -71.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="aim_bot" type="Panel" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -20.0
+margin_top = -20.0
+margin_right = 20.0
+margin_bottom = 20.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RichTextLabel" type="RichTextLabel" parent="aim_bot"]
+margin_left = 16.2332
+margin_top = 13.9548
+margin_right = 56.2332
+margin_bottom = 53.9548
+text = "+"
+
+[node name="close" type="Panel" parent="."]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -40.0
+margin_bottom = 40.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RichTextLabel" type="RichTextLabel" parent="close"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -6.11548
+margin_top = -7.37767
+margin_right = 33.8845
+margin_bottom = 32.6223
+text = "X"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="min" type="Panel" parent="."]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -88.4547
+margin_right = -48.4547
+margin_bottom = 40.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RichTextLabel" type="RichTextLabel" parent="min"]
+margin_left = 18.3024
+margin_top = 11.6757
+margin_right = 58.3024
+margin_bottom = 51.6757
+text = "_"
+__meta__ = {
+"_edit_use_anchors_": false
+}

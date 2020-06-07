@@ -1,0 +1,44 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://world.gd" type="Script" id=1]
+[ext_resource path="res://Dynamic/Characters/player/player.tscn" type="PackedScene" id=2]
+[ext_resource path="res://ui.tscn" type="PackedScene" id=3]
+
+[sub_resource type="CubeMesh" id=1]
+size = Vector3( 6, 1, 6 )
+
+[sub_resource type="ConcavePolygonShape" id=2]
+data = PoolVector3Array( -3, 0.5, 3, 3, 0.5, 3, -3, -0.5, 3, 3, 0.5, 3, 3, -0.5, 3, -3, -0.5, 3, 3, 0.5, -3, -3, 0.5, -3, 3, -0.5, -3, -3, 0.5, -3, -3, -0.5, -3, 3, -0.5, -3, 3, 0.5, 3, 3, 0.5, -3, 3, -0.5, 3, 3, 0.5, -3, 3, -0.5, -3, 3, -0.5, 3, -3, 0.5, -3, -3, 0.5, 3, -3, -0.5, -3, -3, 0.5, 3, -3, -0.5, 3, -3, -0.5, -3, 3, 0.5, 3, -3, 0.5, 3, 3, 0.5, -3, -3, 0.5, 3, -3, 0.5, -3, 3, 0.5, -3, -3, -0.5, 3, 3, -0.5, 3, -3, -0.5, -3, 3, -0.5, 3, 3, -0.5, -3, -3, -0.5, -3 )
+
+[node name="root" type="Spatial"]
+
+[node name="Control" parent="." instance=ExtResource( 3 )]
+
+[node name="world" type="Spatial" parent="."]
+script = ExtResource( 1 )
+chunk_size = 16
+chunk_amount = 16
+chunk_subdivision = 32
+
+[node name="Player" parent="world" instance=ExtResource( 2 )]
+transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 55, 0 )
+ACCELERATION = 3
+DECELERATION = 5
+JUMP_HEIGHT = 5
+
+[node name="Camera" parent="world/Player/target" index="0"]
+far = 10000.0
+distance = 12
+height = 4
+
+[node name="platform" type="MeshInstance" parent="world"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 50, 0 )
+mesh = SubResource( 1 )
+material/0 = null
+
+[node name="StaticBody" type="StaticBody" parent="world/platform"]
+
+[node name="CollisionShape" type="CollisionShape" parent="world/platform/StaticBody"]
+shape = SubResource( 2 )
+
+[editable path="world/Player"]
