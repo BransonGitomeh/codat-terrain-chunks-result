@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://world.gd" type="Script" id=1]
 [ext_resource path="res://Dynamic/Characters/player/player.tscn" type="PackedScene" id=2]
@@ -9,6 +9,16 @@ size = Vector3( 6, 1, 6 )
 
 [sub_resource type="ConcavePolygonShape" id=2]
 data = PoolVector3Array( -3, 0.5, 3, 3, 0.5, 3, -3, -0.5, 3, 3, 0.5, 3, 3, -0.5, 3, -3, -0.5, 3, 3, 0.5, -3, -3, 0.5, -3, 3, -0.5, -3, -3, 0.5, -3, -3, -0.5, -3, 3, -0.5, -3, 3, 0.5, 3, 3, 0.5, -3, 3, -0.5, 3, 3, 0.5, -3, 3, -0.5, -3, 3, -0.5, 3, -3, 0.5, -3, -3, 0.5, 3, -3, -0.5, -3, -3, 0.5, 3, -3, -0.5, 3, -3, -0.5, -3, 3, 0.5, 3, -3, 0.5, 3, 3, 0.5, -3, -3, 0.5, 3, -3, 0.5, -3, 3, 0.5, -3, -3, -0.5, 3, 3, -0.5, 3, -3, -0.5, -3, 3, -0.5, 3, 3, -0.5, -3, -3, -0.5, -3 )
+
+[sub_resource type="OpenSimplexNoise" id=3]
+seed = 445941195
+octaves = 6
+period = 80.0
+
+[sub_resource type="NoiseTexture" id=4]
+width = 256
+height = 256
+noise = SubResource( 3 )
 
 [node name="root" type="Spatial"]
 
@@ -40,5 +50,17 @@ material/0 = null
 
 [node name="CollisionShape" type="CollisionShape" parent="world/platform/StaticBody"]
 shape = SubResource( 2 )
+
+[node name="noisemap" type="TextureRect" parent="world"]
+anchor_top = 1.0
+anchor_bottom = 1.0
+margin_left = 22.3768
+margin_top = -347.994
+margin_right = 278.377
+margin_bottom = -91.9935
+texture = SubResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [editable path="world/Player"]

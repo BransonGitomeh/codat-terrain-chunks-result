@@ -4,12 +4,13 @@ export var chunk_size = 8
 export var chunk_amount = 8
 export var chunk_subdivision = 8
 
-var noise
+
 var chunks = {}
 var completed_chunks = 0
 var unready_chunks = {}
 var thread
 const ChunkManager = preload("Chunk.gd")
+onready var noise = $noisemap.get_texture().get_noise()
 
 func create_key(x, z, LOD):
 	var key = str(x) + "," + str(z) + "," + str(LOD)
@@ -18,11 +19,8 @@ func create_key(x, z, LOD):
 
 func _ready():
 	randomize()
-	noise = OpenSimplexNoise.new()
-
-	noise.seed = randi()
-	noise.octaves = 6
-	noise.period = 80
+	
+	print(randi())
 
 	thread = Thread.new()
 
