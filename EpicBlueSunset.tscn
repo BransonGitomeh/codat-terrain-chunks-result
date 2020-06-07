@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://AllSkyFree/AllSkyFree_Skyboxes/Epic_BlueSunset_EquiRect_flat.png" type="Texture" id=1]
 [ext_resource path="res://world.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Castle.tscn" type="PackedScene" id=3]
 
 [sub_resource type="PanoramaSky" id=1]
 panorama = ExtResource( 1 )
@@ -48,3 +49,13 @@ light_specular = 1.0
 shadow_enabled = true
 
 [node name="root" parent="." instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -8.838 )
+
+[node name="Castle" parent="." instance=ExtResource( 3 )]
+transform = Transform( 30, 0, 0, 0, 20, 0, 0, 0, 30, 0, -2, 0 )
+
+[node name="OmniLight" type="DirectionalLight" parent="Castle"]
+transform = Transform( 0.0333333, 0, 0, 0, 0.05, 0, 0, 0, 0.0333333, 0, 0.45, 0 )
+light_color = Color( 0.909804, 0.972549, 0.145098, 1 )
+light_energy = 8.72
+light_indirect_energy = 200.0

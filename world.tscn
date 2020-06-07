@@ -29,12 +29,11 @@ noise = SubResource( 3 )
 
 [node name="world" type="Spatial" parent="."]
 script = ExtResource( 1 )
-chunk_size = 24
+chunk_size = 16
 chunk_amount = 16
-chunk_subdivision = 4
 
 [node name="Player" parent="world" instance=ExtResource( 2 )]
-transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 25, 0 )
+transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 205, 0 )
 ACCELERATION = 3
 DECELERATION = 5
 JUMP_HEIGHT = 5
@@ -45,7 +44,7 @@ distance = 12
 height = 4
 
 [node name="platform" type="MeshInstance" parent="world"]
-transform = Transform( 1, 0, 0, 0, 0.5, 0, 0, 0, 1, 0, 20, 0 )
+transform = Transform( 1, 0, 0, 0, 0.5, 0, 0, 0, 1, 0, 200, 0 )
 mesh = SubResource( 1 )
 material/0 = null
 
