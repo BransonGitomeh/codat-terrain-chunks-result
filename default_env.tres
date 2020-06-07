@@ -5,3 +5,7 @@
 [resource]
 background_mode = 2
 background_sky = SubResource( 1 )
+fog_enabled = true
+fog_depth_curve = 0.164939
+fog_height_enabled = true
+fog_height_min = 100.0

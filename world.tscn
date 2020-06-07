@@ -12,10 +12,13 @@ data = PoolVector3Array( -3, 0.5, 3, 3, 0.5, 3, -3, -0.5, 3, 3, 0.5, 3, 3, -0.5,
 
 [sub_resource type="OpenSimplexNoise" id=3]
 seed = 445941195
-octaves = 6
-period = 80.0
+octaves = 9
+period = 136.3
+persistence = 0.632
+lacunarity = 1.46
 
 [sub_resource type="NoiseTexture" id=4]
+flags = 63
 width = 256
 height = 256
 noise = SubResource( 3 )
